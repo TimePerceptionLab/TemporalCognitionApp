@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=960 height=1200 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -104,7 +104,7 @@
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
         canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.height = "1200px";
       }
 
       loadingBar.style.display = "block";
@@ -127,14 +127,16 @@
       document.body.appendChild(script);
 
       function resizeUnityCanvas() {
-      var canvas = document.getElementById("unity-canvas");
-      if (canvas) {
-          canvas.style.width = window.innerWidth + "px";
-          canvas.style.height = window.innerHeight + "px";
-      }
-  }
-  window.addEventListener("resize", resizeUnityCanvas);
-  window.addEventListener("load", resizeUnityCanvas);
+    var canvas = document.getElementById("unity-canvas");
+    if (canvas) {
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = "auto"; // Allow height to adjust dynamically
+    }
+}
+
+// Apply resize adjustments on load and resize
+window.addEventListener("resize", resizeUnityCanvas);
+window.addEventListener("load", resizeUnityCanvas);
 
     </script>
   </body>
