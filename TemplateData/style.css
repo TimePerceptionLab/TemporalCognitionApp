@@ -6,7 +6,6 @@ html, body {
     min-height: 100vh; /* Allow content to grow vertically */
     overflow-x: hidden; /* Prevent horizontal scrolling */
     overflow-y: auto; /* Enable vertical scrolling */
-    background-color: #2C2C2C;
 }
 
 /* Make the Unity container fill the width but allow scrolling */
