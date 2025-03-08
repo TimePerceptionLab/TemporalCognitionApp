@@ -127,16 +127,14 @@
       document.body.appendChild(script);
 
       function resizeUnityCanvas() {
-    var canvas = document.getElementById("unity-canvas");
-    if (canvas) {
-        canvas.style.width = window.innerWidth + "px";
-        canvas.style.height = "auto"; // Allow height to adjust dynamically
-    }
-}
-
-// Apply resize adjustments on load and resize
-window.addEventListener("resize", resizeUnityCanvas);
-window.addEventListener("load", resizeUnityCanvas);
+      var canvas = document.getElementById("unity-canvas");
+      if (canvas) {
+          canvas.style.width = window.innerWidth + "px";
+          canvas.style.height = window.innerHeight + "px";
+      }
+  }
+  window.addEventListener("resize", resizeUnityCanvas);
+  window.addEventListener("load", resizeUnityCanvas);
 
     </script>
   </body>
