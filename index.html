@@ -90,7 +90,7 @@
 
         var meta = document.createElement('meta');
         meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
@@ -129,8 +129,10 @@
       function resizeUnityCanvas() {
     var canvas = document.getElementById("unity-canvas");
     if (canvas) {
-        canvas.style.width = window.innerWidth + "px";
-        canvas.style.height = "auto"; // Allow height to adjust dynamically
+        // Set width to match window width
+        canvas.style.width = "100%";
+        // Let height adjust according to content
+        canvas.style.height = "auto";
     }
 }
 
