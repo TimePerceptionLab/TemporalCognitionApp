@@ -5,6 +5,7 @@ html, body {
     height: 100%;
     overflow: hidden;
     background-color: #2C2C2C;
+    position: fixed;
 }
 
 #unity-container {
@@ -23,4 +24,22 @@ html, body {
 .unity-mobile #unity-canvas {
     width: 100% !important;
     height: 100% !important;
+}
+
+/* Prevent keyboard from affecting layout */
+.unity-mobile #unity-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Ensure input fields are visible when keyboard is open */
+.unity-mobile input {
+    position: relative;
+    z-index: 1000;
 }
