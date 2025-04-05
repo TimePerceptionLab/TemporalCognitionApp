@@ -6,19 +6,29 @@ html, body {
     overflow: hidden;
     background-color: #2C2C2C;
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 #unity-container {
-    position: relative;
+    position: fixed;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 #unity-canvas {
     position: relative;
     display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .unity-mobile #unity-canvas {
@@ -36,10 +46,27 @@ html, body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 /* Ensure input fields are visible when keyboard is open */
 .unity-mobile input {
     position: relative;
     z-index: 1000;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Prevent Android keyboard from resizing viewport */
+@media screen and (max-width: 1024px) {
+    html, body {
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
+    
+    #unity-container {
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
 }
