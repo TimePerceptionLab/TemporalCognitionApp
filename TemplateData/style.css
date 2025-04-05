@@ -10,6 +10,7 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
+    -webkit-overflow-scrolling: none;
 }
 
 #unity-container {
@@ -22,6 +23,8 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
+    overflow: hidden;
+    -webkit-overflow-scrolling: none;
 }
 
 #unity-canvas {
@@ -48,6 +51,7 @@ html, body {
     overflow: hidden;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+    -webkit-overflow-scrolling: none;
 }
 
 /* Ensure input fields are visible when keyboard is open */
@@ -61,12 +65,24 @@ html, body {
 /* Prevent Android keyboard from resizing viewport */
 @media screen and (max-width: 1024px) {
     html, body {
-        height: 100vh;
-        height: -webkit-fill-available;
+        height: 100vh !important;
+        height: -webkit-fill-available !important;
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100% !important;
     }
     
     #unity-container {
-        height: 100vh;
-        height: -webkit-fill-available;
+        height: 100vh !important;
+        height: -webkit-fill-available !important;
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100% !important;
+    }
+
+    /* Prevent Android keyboard from resizing */
+    input:focus {
+        position: fixed !important;
+        bottom: 0 !important;
     }
 }
