@@ -5,10 +5,6 @@ html, body {
     height: 100%;
     overflow: hidden;
     background-color: #2C2C2C;
-    position: fixed;
-    /* Prevent viewport from resizing when keyboard appears */
-    height: 100vh;
-    height: -webkit-fill-available;
 }
 
 #unity-container {
@@ -24,31 +20,55 @@ html, body {
     display: block;
 }
 
-.unity-mobile #unity-canvas {
-    width: 100% !important;
-    height: 100% !important;
+/* Mobile specific styles */
+body.unity-mobile {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Prevent iOS from adjusting viewport */
+    -webkit-text-size-adjust: 100%;
+    /* Prevent pull-to-refresh */
+    overscroll-behavior: none;
 }
 
-/* Prevent keyboard from affecting layout */
-.unity-mobile #unity-container {
+.unity-mobile-container {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    height: -webkit-fill-available;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+    /* Prevent content from being pushed up */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
-/* Ensure input fields are visible when keyboard is open */
+.unity-mobile-canvas {
+    width: 100% !important;
+    height: 100% !important;
+    /* Ensure canvas stays in place */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Input field handling */
 .unity-mobile input {
     position: relative;
     z-index: 1000;
     /* Prevent input from causing viewport resize */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+    /* Ensure input is visible above keyboard */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 /* Add viewport meta tag styles */
