@@ -46,14 +46,14 @@
         }).then((unityInstance) => {
           // Set up resize handler to communicate viewport size to Unity
           function resizeUnityCanvas() {
-            var width = window.innerWidth;
-            var height = window.innerHeight;
-            canvas.style.width = width + "px";
-            canvas.style.height = height + "px";
-            // Send the viewport size to Unity
+            var dpr = window.devicePixelRatio || 1;
+            var width = window.innerWidth * dpr;
+            var height = window.innerHeight * dpr;
+            canvas.style.width = window.innerWidth + "px";
+            canvas.style.height = window.innerHeight + "px";
             unityInstance.SendMessage('ResizeCanvas', 'SetViewportSize', JSON.stringify({
-              width: width,
-              height: height
+              width: Math.round(width),
+              height: Math.round(height)
             }));
           }
 
