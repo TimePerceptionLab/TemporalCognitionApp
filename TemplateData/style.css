@@ -6,32 +6,22 @@ html, body {
     overflow: hidden;
     background-color: #2C2C2C;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-overflow-scrolling: none;
+    /* Prevent viewport from resizing when keyboard appears */
+    height: 100vh;
+    height: -webkit-fill-available;
 }
 
 #unity-container {
-    position: fixed;
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    -webkit-overflow-scrolling: none;
 }
 
 #unity-canvas {
     position: relative;
     display: block;
-    width: 100%;
-    height: 100%;
 }
 
 .unity-mobile #unity-canvas {
@@ -48,41 +38,24 @@ html, body {
     bottom: 0;
     width: 100vw;
     height: 100vh;
+    height: -webkit-fill-available;
     overflow: hidden;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    -webkit-overflow-scrolling: none;
 }
 
 /* Ensure input fields are visible when keyboard is open */
 .unity-mobile input {
     position: relative;
     z-index: 1000;
+    /* Prevent input from causing viewport resize */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
 }
 
-/* Prevent Android keyboard from resizing viewport */
-@media screen and (max-width: 1024px) {
-    html, body {
-        height: 100vh !important;
-        height: -webkit-fill-available !important;
-        overflow: hidden !important;
-        position: fixed !important;
-        width: 100% !important;
-    }
-    
-    #unity-container {
-        height: 100vh !important;
-        height: -webkit-fill-available !important;
-        overflow: hidden !important;
-        position: fixed !important;
-        width: 100% !important;
-    }
-
-    /* Prevent Android keyboard from resizing */
-    input:focus {
-        position: fixed !important;
-        bottom: 0 !important;
-    }
+/* Add viewport meta tag styles */
+@viewport {
+    viewport-fit: cover;
+    width: device-width;
+    initial-scale: 1.0;
+    maximum-scale: 1.0;
+    user-scalable: no;
 }
