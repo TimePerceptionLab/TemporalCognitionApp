@@ -3,15 +3,32 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <title>TemporalCognition</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      input, textarea {
+        font-size: 16px !important;
+        background: transparent;
+        color: white;
+        outline: none;
+      }
+    </style>
   </head>
   <body>
     <div id="unity-container">
       <canvas id="unity-canvas" width=960 height=1200 tabindex="-1"></canvas>
     </div>
     <script>
+      // Set viewport height variable
+      function setViewportHeight() {
+        document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+      }
+      window.addEventListener('resize', setViewportHeight);
+      window.addEventListener('orientationchange', setViewportHeight);
+      setViewportHeight();
+
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
 
