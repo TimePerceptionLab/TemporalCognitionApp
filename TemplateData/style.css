@@ -5,126 +5,22 @@ html, body {
     height: 100%;
     overflow: hidden;
     background-color: #2C2C2C;
-    /* Lock the viewport height */
-    height: 100vh;
-    height: -webkit-fill-available;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 
 #unity-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-    /* Prevent any movement */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    will-change: transform;
 }
 
 #unity-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
+    display: block;
+}
+
+.unity-mobile #unity-canvas {
     width: 100% !important;
     height: 100% !important;
-    /* Prevent any movement */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    will-change: transform;
-}
-
-/* Mobile specific styles */
-body.unity-mobile {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    /* Prevent iOS from adjusting viewport */
-    -webkit-text-size-adjust: 100%;
-    /* Prevent pull-to-refresh */
-    overscroll-behavior: none;
-    /* Lock the viewport */
-    height: 100vh;
-    height: -webkit-fill-available;
-}
-
-.unity-mobile-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    /* Prevent any movement */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    will-change: transform;
-}
-
-.unity-mobile-canvas {
-    width: 100% !important;
-    height: 100% !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* Prevent any movement */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    will-change: transform;
-}
-
-/* Input field handling */
-.unity-mobile input {
-    /* Hide the actual input field */
-    opacity: 0;
-    position: absolute;
-    pointer-events: none;
-}
-
-/* Style for the Android keyboard input field */
-.unity-mobile input[type="text"],
-.unity-mobile input[type="number"],
-.unity-mobile input[type="email"],
-.unity-mobile input[type="tel"],
-.unity-mobile input[type="password"] {
-    /* Position it over Unity's input field */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px; /* Adjust this value to match Unity's input field height */
-    z-index: 9999;
-    /* Make it transparent but still functional */
-    background: transparent;
-    color: transparent;
-    caret-color: transparent;
-    /* Ensure it's above Unity's canvas */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    will-change: transform;
-}
-
-/* Add viewport meta tag styles */
-@viewport {
-    viewport-fit: cover;
-    width: device-width;
-    initial-scale: 1.0;
-    maximum-scale: 1.0;
-    user-scalable: no;
 }
